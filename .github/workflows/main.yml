@@ -50,7 +50,7 @@ jobs:
         with:
           context: .
           push: true
-          tags:
+          tags: |
             ghcr.io/${{ github.repository }}:latest
             ghrc.io/${{ github.repository }}:1.0.0
   
