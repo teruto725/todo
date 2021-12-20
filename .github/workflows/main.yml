@@ -41,14 +41,15 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
-        with: 
+        with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
+          push: true
           tags:
             ghcr.io/${{ github.repository }}:latest
             ghrc.io/${{ github.repository }}:1.0.0
